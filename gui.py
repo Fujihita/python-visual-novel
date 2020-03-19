@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk, ImageEnhance
 from time   import sleep
+from threading import Timer
 
 root = tk.Tk() # start class constructor
 root.title("Testbench")
@@ -13,13 +14,16 @@ class PlaysoundException(Exception):
 class Audio:
     '''
     Exerpt and modified code from playsound module for Windows
-    Enable looping and allowing playbacks to be interrupted
+    Support .mp3 and .wav files playbacks using only the native Python modules
+    This module no longer supports blocking and instead supports multi-channel parallel playbacks
+    Built-in loop option
+    The playback can now be interrupted at any time with 1s delay while looping
     '''
-
-    def load_sound(self, sound, block = False, loop = False):
+    def load_sound(self, sound, loop = False):
         self.sound = sound
-        self.block = block
         self.loop = loop
+        from random import random
+        self.alias = 'playsound_' + str(random())
 
     def winCommand(self, *command):
         from ctypes import c_buffer, windll
@@ -39,31 +43,35 @@ class Audio:
 
     def play_sound(self):
         from threading import Timer
-        from time   import sleep
-        from random import random
-        self.alias = 'playsound_' + str(random())
-        
+        if self.loop:
+            sched = Timer(0.1, self.play_loop)
+        else:
+            sched = Timer(0.1, self.play_once)
+        sched.start()
+
+    def play_once(self):
         self.winCommand('open "' + self.sound + '" alias', self.alias)
         self.winCommand('set', self.alias, 'time format milliseconds')
-        durationInMS = self.winCommand('status', self.alias, 'length')
-        self.winCommand('play', self.alias, 'from 0 to', durationInMS.decode())
+        self.durationInMS = self.winCommand('status', self.alias, 'length')
+        self.winCommand('play', self.alias, 'from 0 to', self.durationInMS.decode())
 
-        print("Playing sound")
-        print(self.alias)
-
-        if self.block:
-            sleep(float(durationInMS) / 1000.0)
-        if self.loop:
-            self.sched = Timer(float(durationInMS) / 1000.0, self.play_sound)
-            print("----New Thread---")
-            self.sched.start()
+    def play_loop(self):
+        from time import sleep
+        self.play_once()
+        counter = 0.0
+        while self.loop: 
+            if counter >= (float(self.durationInMS) / 1000.0):
+                self.winCommand('play', self.alias, 'from 0 to', self.durationInMS.decode())
+                counter = 0.0
+            sleep(0.5)
+            counter += 0.5
+        self.stop_sound()
     
     def stop_sound(self):
-        print("Stopping sound")
         if self.loop:
-            self.sched.cancel()
-        print(self.alias)
-        self.winCommand('close', self.alias)
+            self.loop = False # set flag in Main thread
+        else:
+            self.winCommand('close', self.alias)
 
 class Scene:
     def load_scene(self, /, name, dialog, background_src, char1_src, char2_src=None):
@@ -105,39 +113,75 @@ class Scene:
     def draw_scene(self):
         self.load_graphic()
         canvas.update()
-        canvas.create_image(0,0,anchor="nw",image=self.background)
+        canvas.create_image(
+                            0, 0,
+                            anchor = "nw", image = self.background)
         if self.char2_src is None:
-            canvas.create_image(0,0,anchor="nw",image=self.sprite1)
+            canvas.create_image(
+                                0, 0,
+                                anchor = "nw", image = self.sprite1)
         elif self.char1_first:
-            canvas.create_image(canvas.winfo_width(),0,anchor="ne",image=self.sprite2)
-            canvas.create_image(0,0,anchor="nw",image=self.sprite1)
+            canvas.create_image(
+                                canvas.winfo_width(), 0,
+                                anchor = "ne", image = self.sprite2)
+            canvas.create_image(
+                                0, 0,
+                                anchor = "nw", image = self.sprite1)
         else:
-            canvas.create_image(0,0,anchor="nw",image=self.sprite1)
-            canvas.create_image(canvas.winfo_width(),0,anchor="ne",image=self.sprite2)
-        name_box = self.create_rectangle(100,canvas.winfo_height()-300,400,canvas.winfo_height()-250,fill="black",alpha=0.8)
-        dialogbox = self.create_rectangle(100,canvas.winfo_height()-250,canvas.winfo_width()-100,canvas.winfo_height()-75,fill="black",alpha=0.5)      
-        namebox_content = canvas.create_text(250,canvas.winfo_height()-275,anchor="center",fill="white",font="Arial 20 bold",text=self.name)
-        dialogbox_content = canvas.create_text(150,canvas.winfo_height()-225,anchor="nw",fill="white",font="Arial 14 bold",text=self.dialog)
+            canvas.create_image(
+                                0, 0,
+                                anchor = "nw", image = self.sprite1)
+            canvas.create_image(
+                                canvas.winfo_width(), 0,
+                                anchor = "ne", image = self.sprite2)
+        name_box = self.create_rectangle(
+                                        100, canvas.winfo_height() - 300,
+                                        400, canvas.winfo_height() - 250,
+                                        fill = "black", alpha = 0.8)
+        dialogbox = self.create_rectangle(
+                                        100, canvas.winfo_height() - 250,
+                                        canvas.winfo_width() - 100, canvas.winfo_height() - 75,
+                                        fill = "black", alpha = 0.5)      
+        namebox_content = canvas.create_text(
+                                        250, canvas.winfo_height() - 275,
+                                        anchor = "center", fill = "white",
+                                        font = "Arial 20 bold", text = self.name)
+        dialogbox_content = canvas.create_text(
+                                        150, canvas.winfo_height() - 225,
+                                        anchor = "nw", fill = "white",
+                                        font = "Arial 14 bold", text = self.dialog)
+        root.update()
+        root.update_idletasks()
 
 scene = Scene()
 bgm = Audio()
 voice = Audio()
 
-scene.load_scene("CASTLE-3", "Objective cleared!", "background.jpg", "character.png")
-scene.draw_scene()
-scene.load_scene("LANCET-2", "Is it?", "background.jpg", "character.png", "character2.png")
+def next(_scene, _bgm, _voice = None):
+    _scene.draw_scene()
+    _bgm.play_sound()
+    if _voice is not None:
+        sleep(0.1)
+        _voice.play_sound()
+    sleep(10.0)
+    _bgm.stop_sound()
+    sleep(0.6)
+
+scene.load_scene(
+                "CASTLE-3",
+                "Objective cleared!",
+                "background.jpg",
+                "character.png")
+bgm.load_sound('bgm.mp3', loop=True)
+next(scene, bgm)
+
 scene.char1_first = False
-scene.draw_scene()
-
-#bgm.load_sound('7F.mp3')
-#bgm.play_sound()
-bgm.load_sound('voice.mp3', loop=True)
-bgm.play_sound()
-#voice.load_sound('voice.mp3', loop=True)
-#voice.play_sound()
-
-sleep(8.0)
-bgm.stop_sound()
-#voice.stop_sound()
-
-tk.mainloop()
+scene.load_scene(
+                "LANCET-2",
+                "Is it?",
+                "background.jpg",
+                "character.png",
+                "character2.png")
+bgm.load_sound('7F.mp3', loop=True)
+voice.load_sound('voice.mp3')
+next(scene, bgm, voice)

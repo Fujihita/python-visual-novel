@@ -30,6 +30,7 @@ imports:
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -161,14 +162,17 @@ imports:
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#pyi_rth__tkinter.py">pyi_rth__tkinter.py</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
+ &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
@@ -243,17 +247,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="'gi.repository'"></a>
-  <a target="code" href="" type="text/plain"><tt>'gi.repository'</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#playsound">playsound</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="'java.lang'"></a>
   <a target="code" href="" type="text/plain"><tt>'java.lang'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -281,30 +274,8 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="AppKit"></a>
-  <a target="code" href="" type="text/plain"><tt>AppKit</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#playsound">playsound</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="Foundation"></a>
-  <a target="code" href="" type="text/plain"><tt>Foundation</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#playsound">playsound</a>
 
   </div>
 
@@ -333,6 +304,7 @@ imports:
  &#8226;   <a href="#PIL.ImageShow">PIL.ImageShow</a>
  &#8226;   <a href="#PIL.ImageStat">PIL.ImageStat</a>
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
+ &#8226;   <a href="#PIL.Jpeg2KImagePlugin">PIL.Jpeg2KImagePlugin</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PaletteFile">PIL.PaletteFile</a>
  &#8226;   <a href="#PIL.PdfParser">PIL.PdfParser</a>
@@ -1351,7 +1323,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
+    <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
 
   </div>
@@ -4710,8 +4683,8 @@ imported by:
   <a target="code" href="///C:/Users/tung1/AppData/Local/Programs/Python/Python38-32/lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#org">org</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -4791,8 +4764,8 @@ imported by:
  &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+ &#8226;   <a href="#gui.py">gui.py</a>
  &#8226;   <a href="#multiprocessing.sharedctypes">multiprocessing.sharedctypes</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#test.support">test.support</a>
 
   </div>
@@ -8733,17 +8706,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="gi"></a>
-  <a target="code" href="" type="text/plain"><tt>gi</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#playsound">playsound</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="glob"></a>
   <a target="code" href="///C:/Users/tung1/AppData/Local/Programs/Python/Python38-32/lib/glob.py" type="text/plain"><tt>glob</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -11089,7 +11051,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
 
   </div>
 
@@ -11204,7 +11166,6 @@ imported by:
  &#8226;   <a href="#pdb">pdb</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#plistlib">plistlib</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -11314,8 +11275,7 @@ imported by:
   <a target="code" href="///C:/Users/tung1/AppData/Local/Programs/Python/Python38-32/lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#codecs">codecs</a>
@@ -11324,6 +11284,7 @@ imports:
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -11396,37 +11357,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#playsound">playsound</a>
- &#8226;   <a href="#pydoc">pydoc</a>
+    <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#test.support">test.support</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="playsound"></a>
-  <a target="code" href="///D:/backup/project%20%27euler%27/python/visual-novel/.venv/lib/site-packages/playsound.py" type="text/plain"><tt>playsound</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#'gi.repository'">'gi.repository'</a>
- &#8226;   <a href="#AppKit">AppKit</a>
- &#8226;   <a href="#Foundation">Foundation</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#gi">gi</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#urllib">urllib</a>
- &#8226;   <a href="#urllib.pathname2url">urllib.pathname2url</a>
- &#8226;   <a href="#urllib.request">urllib.request</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#gui.py">gui.py</a>
 
   </div>
 
@@ -11727,7 +11659,7 @@ imported by:
     <a href="#PIL.ImagePalette">PIL.ImagePalette</a>
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
- &#8226;   <a href="#playsound">playsound</a>
+ &#8226;   <a href="#gui.py">gui.py</a>
  &#8226;   <a href="#secrets">secrets</a>
  &#8226;   <a href="#tempfile">tempfile</a>
 
@@ -12494,6 +12426,7 @@ imported by:
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#gui.py">gui.py</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#importlib">importlib</a>
@@ -12533,7 +12466,6 @@ imported by:
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -12866,6 +12798,7 @@ imported by:
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
+ &#8226;   <a href="#gui.py">gui.py</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#logging.handlers">logging.handlers</a>
@@ -12914,6 +12847,7 @@ imported by:
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#gc">gc</a>
+ &#8226;   <a href="#gui.py">gui.py</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
@@ -12924,7 +12858,6 @@ imported by:
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.queues">multiprocessing.queues</a>
  &#8226;   <a href="#multiprocessing.synchronize">multiprocessing.synchronize</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#queue">queue</a>
@@ -13439,14 +13372,8 @@ imported by:
   <a name="urllib"></a>
   <a target="code" href="///C:/Users/tung1/AppData/Local/Programs/Python/Python38-32/lib/urllib/__init__.py" type="text/plain"><tt>urllib</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#urllib.pathname2url">urllib.pathname2url</a>
-
-  </div>
-  <div class="import">
 imported by:
     <a href="#email._header_value_parser">email._header_value_parser</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#urllib.error">urllib.error</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
@@ -13508,18 +13435,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="urllib.pathname2url"></a>
-  <a target="code" href="" type="text/plain"><tt>urllib.pathname2url</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#playsound">playsound</a>
- &#8226;   <a href="#urllib">urllib</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="urllib.request"></a>
   <a target="code" href="///C:/Users/tung1/AppData/Local/Programs/Python/Python38-32/lib/urllib/request.py" type="text/plain"><tt>urllib.request</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -13559,7 +13474,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#test.support">test.support</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
 
