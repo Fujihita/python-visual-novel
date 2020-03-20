@@ -46,6 +46,8 @@ jspm_packages
 /dist
 /__pycache__
 
+*.exe
+
 # Sonarqube properties file
 sonar-project.properties
 /.sonar
