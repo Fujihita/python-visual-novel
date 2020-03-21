@@ -1,7 +1,6 @@
 from PIL import Image, ImageTk, ImageEnhance
 from tkinter import Canvas
 from time   import sleep
-from threading import Timer
 
 class scene:
     def __init__(self, callback, _root):
@@ -11,6 +10,7 @@ class scene:
         canvas = Canvas(root, width=1366, height=768, background="black")
         canvas.bind("<Button-1>", callback)
         canvas.pack()
+        self.printFlag = False
         self.images = []
         self.load_interface()
 
@@ -53,6 +53,10 @@ class scene:
                             0, 0,
                             anchor = "nw")
         canvas.update()
+        # Foreground layer
+        self.effect_content = canvas.create_image(
+                                        0, 0,
+                                        anchor = "nw")
         self.char2 = canvas.create_image(
                                         canvas.winfo_width(), 0,
                                         anchor = "ne")
@@ -62,30 +66,45 @@ class scene:
         self.char2_top = canvas.create_image(
                                         canvas.winfo_width(), 0,
                                         anchor = "ne")
+        self.effect_top_content = canvas.create_image(
+                                        0, 0,
+                                        anchor = "nw")
+        # UX element layer
         self.name_box = self.create_rectangle(
-                                        100, canvas.winfo_height() - 300,
-                                        400, canvas.winfo_height() - 250,
+                                        100, canvas.winfo_height() - 250,
+                                        400, canvas.winfo_height() - 200,
                                         fill = "black", alpha = 0.8)
         self.dialogbox = self.create_rectangle(
-                                        100, canvas.winfo_height() - 250,
-                                        canvas.winfo_width() - 100, canvas.winfo_height() - 75,
+                                        100, canvas.winfo_height() - 200,
+                                        canvas.winfo_width() - 100, canvas.winfo_height() - 25,
                                         fill = "black", alpha = 0.5)
         self.namebox_content = canvas.create_text(
-                                        250, canvas.winfo_height() - 275,
+                                        250, canvas.winfo_height() - 225,
                                         anchor = "center", fill = "white",
                                         font = "Arial 20 bold")
         self.dialogbox_content = canvas.create_text(
-                                        150, canvas.winfo_height() - 225,
+                                        150, canvas.winfo_height() - 175,
                                         anchor = "nw", width = canvas.winfo_width() - 300, fill = "white",
                                         font = "Arial 14 bold")
+
+    def effect(self, src, top=False):
+        if src == "":
+            canvas.itemconfigure(self.effect_content, image = src)
+            canvas.itemconfigure(self.effect_top_content, image = src)
+            return
+        self.eff_img = Image.open(src).resize((1366,768),Image.ANTIALIAS)
+        self.eff_img = ImageTk.PhotoImage(self.eff_img)
+        if top:
+            canvas.itemconfigure(self.effect_top_content, image = self.eff_img)
+        else:
+            canvas.itemconfigure(self.effect_content, image = self.eff_img)
 
     def background(self, src):
         self.bg_img = Image.open(src).resize((1366,768),Image.ANTIALIAS)
         self.bg_img = ImageTk.PhotoImage(self.bg_img)
         canvas.itemconfigure(self.background_content, image = self.bg_img)
-        canvas.update()
 
-    def foreground(self, /, char1='', char2='',*, active = "char1"):
+    def foreground(self, /, char1='', char2='',*, active = ""):
         self.load_graphic(char1, char2, active)
         
         canvas.itemconfigure(self.char1, image = self.sprite1)
@@ -95,15 +114,23 @@ class scene:
         else:
             canvas.itemconfigure(self.char2, image = self.sprite2)
             canvas.itemconfigure(self.char2_top, image = '')
-        canvas.update()
     
     def dialog(self, /, name, dialog):
         canvas.itemconfigure(self.namebox_content, text = name)
         canvas.itemconfigure(self.dialogbox_content, text = '')
         canvas.update()
-        for i in range(len(dialog) + 1): 
-            canvas.itemconfigure(self.dialogbox_content, text = dialog[:i])
-            canvas.update()
+        self.buffer = dialog
+        self.index = 0
+
+    def update_dialog(self):
+        if self.index < len(self.buffer) + 1:
+            canvas.itemconfigure(self.dialogbox_content, text = self.buffer[:self.index])
+            self.index += 1
             sleep(0.05)
+        return self.index < len(self.buffer) + 1 # return a flag that indicates printing status
+
+    def skip_dialog(self):
+        canvas.itemconfigure(self.dialogbox_content, text = self.buffer)
+
         
         
