@@ -1,0 +1,50 @@
+[Background: forex.jpg]
+[BGM: crowd.mp3]
+
+<Mahmud.png
+ : An Arab with a pink headscarf was leaving the currency exchange when...
+
+<Woman.png
+Woman: Ouch!
+
+<
+ : He bumped into a woman and knocked her over. 
+
+<[Mahmud.png], Woman.png
+Man: "Are you--"
+
+<Mahmud.png, [Woman.png]
+ : Before he could finish his sentence, the woman raised her voice
+Woman: "Calm down, good sir! You're making this a bigger fuss than it is!"
+
+<[Mahmud.png], Woman.png
+Man: "But I'm perfectly calm and I'm not making a fuss"
+
+<Mahmud.png, [Woman.png]
+Woman: "Yes, you are, good sir! Now if you can just cool your head for a moment, we will figure something out"
+
+<[Mahmud.png], Woman.png
+Man: "I'm telling you..."
+
+<Mahmud.png, [Woman.png]
+Woman: "Don't do anything rash or I'll scream!"
+
+[Voice: footstep.mp3]
+
+<Woman.png
+Woman: "Thief! He's a thief!"
+
+[Background: airport.jpg]
+[Voice: footstep.mp3]
+[Voice: handcuff.mp3]
+<Mahmud.png
+Man: "Let me go, I'm innocent! I didn't steal anything from her!"
+<Mahmud.png, [Woman.png]
+Woman: "Thank you, officer for getting my money back--"
+<[Mahmud.png], Woman.png
+Man: "That's my money! Officers! This woman is a fraud. You must arrest her, not me!"
+<Woman.png
+Woman: "That's what they all said. These Arabs are unbelievable. You must send him back to Iran or whever he came from."
+Woman: "I don't feel safe walking on the street anymore."
+<Police.png
+Poilice: "Worry not, madam. We'll take care of him right away."

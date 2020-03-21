@@ -11,6 +11,12 @@
   ('contextlib',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\contextlib.py',
    'PYMODULE'),
+  ('threading',
+   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\_threading_local.py',
+   'PYMODULE'),
   ('signal',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\signal.py',
    'PYMODULE'),
@@ -77,6 +83,9 @@
   ('importlib',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\importlib\\__init__.py',
    'PYMODULE'),
+  ('importlib.abc',
+   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\importlib\\abc.py',
+   'PYMODULE'),
   ('importlib._bootstrap',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\importlib\\_bootstrap.py',
    'PYMODULE'),
@@ -85,9 +94,6 @@
    'PYMODULE'),
   ('importlib.metadata',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\importlib\\metadata.py',
-   'PYMODULE'),
-  ('importlib.abc',
-   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\importlib\\abc.py',
    'PYMODULE'),
   ('configparser',
    'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\configparser.py',
@@ -796,101 +802,105 @@
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\Image.py",
    'PYMODULE'),
-  ('PIL.DdsImagePlugin',
+  ('PIL.IcoImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\DdsImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IcoImagePlugin.py",
    'PYMODULE'),
   ('PIL.ImageFile',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\ImageFile.py",
    'PYMODULE'),
-  ('PIL.SunImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\SunImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.IcnsImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IcnsImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.XpmImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XpmImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.McIdasImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\McIdasImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.MicImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MicImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.XVThumbImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XVThumbImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.IptcImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IptcImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.ImImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\ImImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.PixarImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PixarImagePlugin.py",
-   'PYMODULE'),
   ('PIL.BufrStubImagePlugin',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\BufrStubImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.FtexImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FtexImagePlugin.py",
    'PYMODULE'),
   ('PIL.TgaImagePlugin',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\TgaImagePlugin.py",
    'PYMODULE'),
-  ('PIL.BlpImagePlugin',
+  ('PIL.SunImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\BlpImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\SunImagePlugin.py",
    'PYMODULE'),
-  ('PIL.IcoImagePlugin',
+  ('PIL.MpegImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IcoImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MpegImagePlugin.py",
    'PYMODULE'),
-  ('PIL.GribStubImagePlugin',
+  ('PIL.XpmImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\GribStubImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.PcxImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PcxImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.XbmImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XbmImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.SgiImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\SgiImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.Jpeg2KImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XpmImagePlugin.py",
    'PYMODULE'),
   ('PIL.CurImagePlugin',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\CurImagePlugin.py",
    'PYMODULE'),
-  ('PIL.PsdImagePlugin',
+  ('PIL.WebPImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PsdImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\WebPImagePlugin.py",
    'PYMODULE'),
-  ('PIL.MpegImagePlugin',
+  ('PIL.PixarImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MpegImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PixarImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.EpsImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\EpsImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.PcxImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PcxImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.BlpImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\BlpImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.FpxImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FpxImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.MspImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MspImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.GribStubImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\GribStubImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.FitsStubImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FitsStubImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.FtexImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FtexImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.ImImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\ImImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.XbmImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XbmImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.McIdasImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\McIdasImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.GbrImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\GbrImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.IcnsImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IcnsImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.DcxImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\DcxImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.PalmImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PalmImagePlugin.py",
    'PYMODULE'),
   ('PIL.PdfImagePlugin',
    'd:\\backup\\project '
@@ -904,53 +914,17 @@
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\ImageSequence.py",
    'PYMODULE'),
-  ('PIL.PcdImagePlugin',
+  ('PIL.SgiImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PcdImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\SgiImagePlugin.py",
    'PYMODULE'),
-  ('PIL.MspImagePlugin',
+  ('PIL.IptcImagePlugin',
    'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MspImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.EpsImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\EpsImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.GbrImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\GbrImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.FitsStubImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FitsStubImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.PalmImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PalmImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.WebPImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\WebPImagePlugin.py",
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\IptcImagePlugin.py",
    'PYMODULE'),
   ('PIL.FliImagePlugin',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FliImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.FpxImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\FpxImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.MpoImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MpoImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.Hdf5StubImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\Hdf5StubImagePlugin.py",
-   'PYMODULE'),
-  ('PIL.DcxImagePlugin',
-   'd:\\backup\\project '
-   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\DcxImagePlugin.py",
    'PYMODULE'),
   ('PIL.SpiderImagePlugin',
    'd:\\backup\\project '
@@ -959,6 +933,38 @@
   ('PIL.ImtImagePlugin',
    'd:\\backup\\project '
    "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\ImtImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.Jpeg2KImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.XVThumbImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\XVThumbImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.PsdImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PsdImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.PcdImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\PcdImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.MpoImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MpoImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.DdsImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\DdsImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.MicImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\MicImagePlugin.py",
+   'PYMODULE'),
+  ('PIL.Hdf5StubImagePlugin',
+   'd:\\backup\\project '
+   "'euler'\\python\\visual-novel\\.venv\\lib\\site-packages\\PIL\\Hdf5StubImagePlugin.py",
    'PYMODULE'),
   ('PIL.WmfImagePlugin',
    'd:\\backup\\project '
@@ -1060,10 +1066,4 @@
    'PYMODULE'),
   ('lib.audio',
    "D:\\Backup\\Project 'Euler'\\Python\\Visual-Novel\\lib\\audio.py",
-   'PYMODULE'),
-  ('threading',
-   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\threading.py',
-   'PYMODULE'),
-  ('_threading_local',
-   'C:\\Users\\tung1\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\_threading_local.py',
    'PYMODULE')])

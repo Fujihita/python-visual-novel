@@ -54,14 +54,14 @@ class audio:
             if counter >= (float(self.durationInMS) / 1000.0):
                 self.winCommand('play', self.alias, 'from 0 to', self.durationInMS.decode())
                 counter = 0.0
-            sleep(0.5)
-            counter += 0.5
+            sleep(0.1)
+            counter += 0.1
         self.stop_sound()
     
     def stop_sound(self):
         from time import sleep
         if self.loop:
             self.loop = False # set flag in Main thread
-            sleep(0.5)
+            sleep(0.1)
         else:
             self.winCommand('close', self.alias)
