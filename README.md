@@ -1,5 +1,5 @@
 # python-visual-novel
-![Screenshot](https://i.imgur.com/W91NIVq.jpg Preview)
+![Screenshot](https://i.imgur.com/W91NIVq.jpg)
 This is a simple "Hello world" visual novel (Japanese point-click choose-your-own-adventure game) written in Python. The app supports Windows OS and the custom sound library will not work in other OS. 
 
 The only dependency is Pillow (PIL).
