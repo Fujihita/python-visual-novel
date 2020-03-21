@@ -5,7 +5,7 @@ This is a simple "Hello world" visual novel (Japanese point-click choose-your-ow
 The only dependency is Pillow (PIL).
 
 ## stats
-Version: 1.0.0
+Version: 1.0.1
 
 Project started: 26 February 2020
 

@@ -56,9 +56,9 @@ class audio:
                 counter = 0.0
             sleep(0.1)
             counter += 0.1
-        self.stop_sound()
+        self.stop()
     
-    def stop_sound(self):
+    def stop(self):
         from time import sleep
         if self.loop:
             self.loop = False # set flag in Main thread
