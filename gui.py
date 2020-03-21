@@ -17,38 +17,34 @@ def next(pos):
     global root
     while position < pos:
         root.update()
+    print("next", position)
 
 scene = scene(callback, root)
 bgm = audio()
 voice = audio()
+
+#Scenario starts below
+scene.background("background\\background-2.jpg")
+scene.foreground("sprite\\Castle-3.png")
 bgm.play('music\\bgm.mp3', loop=True)
-scene.set_background("background\\background-2.jpg")
-scene.draw(
-            "CASTLE-3",
-            "Objective cleared!",
-            "sprite\\Castle-3.png")
+scene.dialog("Castle-3","Objective cleared!")
 next(1)
 bgm.stop_sound()
-
+scene.foreground("sprite\\Castle-3.png","sprite\\Lancet-2.png", active="char2")
 bgm.play('music\\7F.mp3', loop=True)
 voice.play('voice\\voice.mp3')
-scene.draw(
-            "LANCET-2",
-            "But at what cost?",
-            "sprite\\Castle-3.png",
-            "sprite\\Lancet-2.png", active="char2")
+scene.dialog("Lancet-2","Be on your guard, we're not in the clear yet!")
 next(2)
 voice.stop_sound()
-scene.draw(
-            "CASTLE-3",
-            "Who cares? As long as I'm not the one paying it.",
-            "sprite\\Castle-3.png",
-            "sprite\\Lancet-2.png")
-
+scene.foreground("sprite\\Castle-3.png","sprite\\Lancet-2.png")
+scene.dialog("Castle-3","Please! Nothing here can even put a scratch on my armor. It would take a real boss to get me sweating.")
 next(3)
-bgm.stop_sound()
-bgm.play('music\\boss.mp3', loop=True)
-scene.set_background("background\\background-1.jpg")
-scene.draw("Boss","Famous last words, son.",char2_src="sprite\\Navigator.png",active="char2")
+scene.dialog("Castle-3","Well, but that will never happen, right?")
 next(4)
+bgm.stop_sound()
+scene.background("background\\background-1.jpg")
+scene.foreground(char2="sprite\\Navigator.png",active="char2")
+bgm.play('music\\boss.mp3', loop=True)
+scene.dialog("A real boss","Famous last words, son.")
+next(5)
 bgm.stop_sound()
