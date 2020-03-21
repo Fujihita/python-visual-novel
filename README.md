@@ -7,9 +7,16 @@ The only dependency is Pillow (PIL).
 ## stats
 Version: 1.0.1
 
-Project started: 26 February 2020
+Project started: 18 March 2020
 
-Project published: 3 March 2020
+Project published: 21 March 2020
+
+## feature
+* Setting background
+* Displaying two sprites at once and the option to focus on one or both sprites
+* Overlaying effects before or after the sprites
+* Interruptible multi-track audio playback with looping option (.mp3 and .wav support)
+* Asynchronous running text printer with dialog skip on mouse click option
 
 ## backlog
 * Scenario importer
