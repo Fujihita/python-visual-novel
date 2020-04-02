@@ -1,7 +1,7 @@
 class PlaysoundException(Exception):
     pass
 
-class audio:
+class Audio:
     '''
     Exerpt and modified code from playsound module for Windows
     Support .mp3 and .wav files playbacks using only the native Python modules
@@ -9,14 +9,21 @@ class audio:
     Built-in loop option
     The playback can now be interrupted at any time with 1s delay while looping
     '''
-    def play(self, sound, loop = False):
-        self.sound = sound
-        self.loop = loop
-        from random import random
-        self.alias = 'playsound_' + str(random())
-        self.play_sound()
+    def __init__(self):
+        self._src = ''
+        self._looping_flag = False
 
-    def winCommand(self, *command):
+    def set(self, src, loop = False):
+        if self._src == src:
+            return
+        
+        self._src = src
+        self._looping_flag = loop
+        from random import random
+        self._alias = 'playsound_' + str(random())
+        self._play_sound()
+
+    def _winCommand(self, *command):
         from ctypes import c_buffer, windll
         from sys    import getfilesystemencoding
 
@@ -32,36 +39,39 @@ class audio:
             raise PlaysoundException(exceptionMessage)
         return buf.value
 
-    def play_sound(self):
+    def _play_sound(self):
         from threading import Timer
-        if self.loop:
-            sched = Timer(0.1, self.play_loop)
+        if self._looping_flag:
+            sched = Timer(0.1, self._play_loop)
             sched.start()
         else:
-            self.play_once()
+            self._play_once()
 
-    def play_once(self):
-        self.winCommand('open "' + self.sound + '" alias', self.alias)
-        self.winCommand('set', self.alias, 'time format milliseconds')
-        self.durationInMS = self.winCommand('status', self.alias, 'length')
-        self.winCommand('play', self.alias, 'from 0 to', self.durationInMS.decode())
+    def _play_once(self):
+        self._winCommand('open "' + self._src + '" alias', self._alias)
+        self._winCommand('set', self._alias, 'time format milliseconds')
+        self._durationInMS = self._winCommand('status', self._alias, 'length')
+        self._winCommand('play', self._alias, 'from 0 to', self._durationInMS.decode())
 
-    def play_loop(self):
+    def _play_loop(self):
         from time import sleep
-        self.play_once()
+        self._play_once()
         counter = 0.0
-        while self.loop: 
-            if counter >= (float(self.durationInMS) / 1000.0):
-                self.winCommand('play', self.alias, 'from 0 to', self.durationInMS.decode())
+        while self._looping_flag: 
+            if counter >= (float(self._durationInMS) / 1000.0):
+                self._winCommand('play', self._alias, 'from 0 to', self._durationInMS.decode())
                 counter = 0.0
             sleep(0.1)
             counter += 0.1
         self.stop()
     
     def stop(self):
+        if self._src == '':
+            return
         from time import sleep
-        if self.loop:
-            self.loop = False # set flag in Main thread
+        if self._looping_flag:
+            self._looping_flag = False # set flag in Main thread
             sleep(0.1)
         else:
-            self.winCommand('close', self.alias)
+            self._winCommand('close', self._alias)
+            sleep(0.1)
