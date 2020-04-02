@@ -17,13 +17,14 @@ def next(pos):
     global root
     global scene
     while position < pos:
-        scene.update_dialog()
-        root.update()
-    if scene.update_dialog():
-        scene.skip_dialog()
-        position = pos - 1
-        while position < pos:
-            root.update()
+        pass
+    #    scene.update_dialog()
+        #root.update()
+    #if scene.update_dialog():
+    #    scene.skip_dialog()
+    #    position = pos - 1
+    #    while position < pos:
+    #        root.update()
 
 scene = scene(callback, root)
 bgm = audio()
@@ -40,7 +41,7 @@ bgm.stop()
 bgm.play('music\\7F.mp3', loop=True)
 scene.foreground("sprite\\Castle-3.png","sprite\\Lancet-2.png", active="char2")
 scene.dialog("Lancet-2","Be on your guard, we're not in the clear yet!")
-voice.play('voice\\voice.mp3')
+voice.play('voice\\voice.mp3', loop=True)
 next(2)
 
 voice.stop()
@@ -63,7 +64,7 @@ scene.effect("")
 scene.foreground("sprite\\Castle-3.png","sprite\\Lancet-2.png")
 scene.effect("effect\\speedlines.png", top=True)
 scene.dialog("","*Le gasp* A wild boss appeared!")
-voice.play('voice\\voice2.wav')
 next(6)
-voice.stop()
 bgm.stop()
+
+root.mainloop()

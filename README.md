@@ -16,7 +16,7 @@ Project published: 21 March 2020
 * Displaying two sprites at once and the option to focus on one or both sprites
 * Overlaying effects before or after the sprites
 * Interruptible multi-track audio playback with looping option (.mp3 and .wav support)
-* Asynchronous running text printer with dialog skip on mouse click option
+* Running text printer with dialog skip on mouse click option
 
 ## backlog
 * Scenario importer
