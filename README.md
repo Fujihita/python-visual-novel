@@ -5,7 +5,7 @@ This is a simple "Hello world" visual novel (Japanese point-click choose-your-ow
 The only dependency is Pillow (PIL).
 
 ## stats
-Version: 1.1.0
+Version: 1.2.0
 
 Project started: 18 March 2020
 
@@ -19,7 +19,6 @@ Project published: 21 March 2020
 * Running text printer with dialog skip on mouse click option
 
 ## backlog
-* Refactor audio module, add playback ending event (to proceed with autoscroll after the playback is finished), force each audio object to play only one track and force stop the previous track when a new track is set.
 * Animated UI elements (next arrow icon at the end of line)
 * Fade-out scene transition
 * Scenario importer + Save/Load system

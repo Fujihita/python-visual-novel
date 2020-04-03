@@ -20,7 +20,7 @@ root.update()
 
 scene = Scene(canvas)
 
-music = Audio()
+music = Audio(mode="loop")
 voice = Audio()
 background = scene.background.wallpaper
 effect_bottom = scene.background.effect
@@ -41,7 +41,7 @@ def next(pos):
         position -= 1
         while position < pos:
             scene.update()
-
+        voice.stop()
 
 #Scenario starts below
 '''
@@ -58,7 +58,7 @@ Settings for scenes:
     effect_top.set
 '''
 
-music.set('music\\bgm.mp3', loop=True)
+music.set('music\\bgm.mp3')
 background.set("background\\background-2.jpg")
 character_left.hide()
 character_center.set("art\\Castle-3.png")
@@ -70,8 +70,7 @@ effect_top.set("effect\\speedlines.png")
 effect_top.blink()
 next(1)
 
-music.stop()
-music.set('music\\7F.mp3', loop=True)
+music.set('music\\7F.mp3')
 voice.set('voice\\voice.mp3')
 background.set("background\\background-2.jpg")
 character_left.set("art\\Castle-3.png")
@@ -85,8 +84,7 @@ effect_bottom.stop()
 effect_top.stop()
 next(2)
 
-music.set('music\\7F.mp3', loop=True)
-voice.stop()
+music.set('music\\7F.mp3')
 background.set("background\\background-2.jpg")
 character_left.set("art\\Castle-3.png")
 character_left.speaking()
@@ -99,7 +97,7 @@ effect_bottom.stop()
 effect_top.stop()
 next(3)
 
-music.set('music\\7F.mp3', loop=True)
+music.set('music\\7F.mp3')
 background.set("background\\background-2.jpg")
 character_left.set("art\\Castle-3.png")
 character_left.speaking()
@@ -112,8 +110,7 @@ effect_bottom.stop()
 effect_top.stop()
 next(4)
 
-music.stop()
-music.set('music\\boss.mp3', loop=True)
+music.set('music\\boss.mp3')
 background.set("background\\background-1.jpg")
 character_left.hide()
 character_center.set("art\\Navigator.png")

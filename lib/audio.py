@@ -1,32 +1,14 @@
+from threading import Timer, Thread, Event
+
 class PlaysoundException(Exception):
     pass
 
-class Audio:
-    '''
-    Exerpt and modified code from playsound module for Windows
-    Support .mp3 and .wav files playbacks using only the native Python modules
-    This module no longer supports blocking and instead supports multi-channel parallel playbacks
-    Built-in loop option
-    The playback can now be interrupted at any time with 1s delay while looping
-    '''
-    def __init__(self):
-        self._src = ''
-        self._looping_flag = False
 
-    def set(self, src, loop = False):
-        if self._src == src:
-            return
-        
-        self._src = src
-        self._looping_flag = loop
-        from random import random
-        self._alias = 'playsound_' + str(random())
-        self._play_sound()
-
+class WinCommand:
+    
     def _winCommand(self, *command):
         from ctypes import c_buffer, windll
         from sys    import getfilesystemencoding
-
         buf = c_buffer(255)
         command = ' '.join(command).encode(getfilesystemencoding())
         errorCode = int(windll.winmm.mciSendStringA(command, buf, 254, 0))
@@ -39,39 +21,73 @@ class Audio:
             raise PlaysoundException(exceptionMessage)
         return buf.value
 
-    def _play_sound(self):
-        from threading import Timer
-        if self._looping_flag:
-            sched = Timer(0.1, self._play_loop)
-            sched.start()
+
+class Audio(WinCommand):
+     
+    def __init__(self, mode = "single"):
+        self._src = ''
+        self._playing = ''
+        if mode == "loop":
+            self._play_mode = self._play_loop
         else:
-            self._play_once()
+            self._play_mode = self._play_once
+
+    def set(self, src):
+        self._src = src
+        self._change_track()
+
+    def _change_track(self):
+        if self._playing == self._src:
+            print("The same track is already playing:", self._playing)
+            return
+        if self._playing != '':
+            print("A different track is playing, stopping ", self._playing)
+            self.stop()
+        self._play_mode()
 
     def _play_once(self):
+        from random import random
+        self._alias = 'playsound_' + str(random())
         self._winCommand('open "' + self._src + '" alias', self._alias)
         self._winCommand('set', self._alias, 'time format milliseconds')
-        self._durationInMS = self._winCommand('status', self._alias, 'length')
-        self._winCommand('play', self._alias, 'from 0 to', self._durationInMS.decode())
+        self._duration = self._winCommand('status', self._alias, 'length')
+        self._winCommand('play', self._alias, 'from 0 to', self._duration.decode())
+        self._cleanup_timer = Timer(float(self._duration) / 1000.0, self._cleanup_handler)
+        self._cleanup_timer.start()
+        self._playing = self._src
+
+    def _cleanup_handler(self):
+        if self._playing != '':
+            print("The track", self._playing , "is stopped.")
+            self._playing = ''
+            self._cleanup_timer.cancel()
 
     def _play_loop(self):
-        from time import sleep
+        self._break_loop = Event()
+        looper_thread = Thread(target=self._looper,args=(self._break_loop,))
+        looper_thread.start()
+
+    def _looper(self, event):
+        from time import time as clock
         self._play_once()
-        counter = 0.0
-        while self._looping_flag: 
-            if counter >= (float(self._durationInMS) / 1000.0):
-                self._winCommand('play', self._alias, 'from 0 to', self._durationInMS.decode())
-                counter = 0.0
-            sleep(0.1)
-            counter += 0.1
+        starttime = clock()
+        while not self._break_loop.is_set(): 
+            if clock() - starttime >= (float(self._duration) / 1000.0):
+                self._play_once()
+                starttime = clock()
         self.stop()
-    
+
     def stop(self):
-        if self._src == '':
+        try:
+            self._break_loop.set()
+        except AttributeError:
+            print("AttributeError:", self._src)
+        if self._playing == '':
+            print("The track has already ended")
             return
-        from time import sleep
-        if self._looping_flag:
-            self._looping_flag = False # set flag in Main thread
-            sleep(0.1)
-        else:
+        try:
             self._winCommand('close', self._alias)
-            sleep(0.1)
+        except PlaysoundException:
+            pass
+        finally:
+            self._cleanup_handler()
