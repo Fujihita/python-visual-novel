@@ -1,5 +1,5 @@
 # python-visual-novel
-![Screenshot](https://i.imgur.com/W91NIVq.jpg)
+![Screenshot](https://i.imgur.com/UDMqDZR.jpg)
 This is a simple "Hello world" visual novel (Japanese point-click choose-your-own-adventure game) written in Python. The app supports Windows OS and the custom sound library will not work in other OS. 
 
 The only dependency is Pillow (PIL).
@@ -17,7 +17,7 @@ Project published: 21 March 2020
 * Animated effects before or after the characters
 * Interruptible multi-track audio playback with looping option (.mp3 and .wav support)
 * Running text printer with dialog skip on mouse click option
-* Importing custom scenarios from a simplified text file (custom syntax based on Ren'Py)
+* Importing custom scenarios from an editable text file (custom syntax based on Ren'Py)
 
 ## backlog
 * Save/Load system
