@@ -38,10 +38,8 @@ class Audio(WinCommand):
 
     def _change_track(self):
         if self._playing == self._src:
-            print("The same track is already playing:", self._playing)
             return
         if self._playing != '':
-            print("A different track is playing, stopping ", self._playing)
             self.stop()
         self._play_mode()
 
@@ -58,7 +56,6 @@ class Audio(WinCommand):
 
     def _cleanup_handler(self):
         if self._playing != '':
-            print("The track", self._playing , "is stopped.")
             self._playing = ''
             self._cleanup_timer.cancel()
 
@@ -81,9 +78,8 @@ class Audio(WinCommand):
         try:
             self._break_loop.set()
         except AttributeError:
-            print("AttributeError:", self._src)
+            pass
         if self._playing == '':
-            print("The track has already ended")
             return
         try:
             self._winCommand('close', self._alias)

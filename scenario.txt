@@ -1,0 +1,22 @@
+character C "CASTLE-3"
+character L "LANCET-2"
+character B "A real boss"
+
+background tank
+music bgm
+effect top blink speedlines
+	C "Mission accomplished!"
+music 7F
+voice voice
+effect top stop
+	L "Be on your guard, we're not in the clear yet!"
+	C "Nothing here can even put a scratch on my armor. It would take a real boss to get me sweating."
+	C "Well, something that plot-convenient would never happen, right?"
+
+background wreckage
+	"Suddenly, there was a devilish laughter nearby."
+music boss
+effect bottom shake menacing
+	B "A wild boss appeared!" --nameless
+	B "Famous last words, son."
+exit
