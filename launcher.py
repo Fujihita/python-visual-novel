@@ -9,7 +9,8 @@ with open("scenario.txt", "r", encoding="utf8") as src:
             save.alias(line)
 
         elif line[:10] == 'background':                     # set background
-            background.set("background\\" + bg_dict[line[11:-1]])
+            character.clear()
+            background.set("background\\" + line[11:-1] + ".jpg")
             save.background(line)
 
         elif line[:5] == 'music':                           # set music
@@ -32,15 +33,21 @@ with open("scenario.txt", "r", encoding="utf8") as src:
 
         elif line[0] == "\t":                               # set dialog
             alias = line[1:line.find('"')-1]
-            if alias != '' and "--nameless" not in line:
+            if alias != '' and  '" "' not in line and '--nameless' not in line:
                 name.set(char_dict[alias])
+            elif '" "' in line:
+                name.set(line[2:line.find('" "')])
             else:
                 name.set("")
+            
             if alias != '':
-                character_center.set("art\\" + art_dict[char_dict[alias]][""])
+                character.set("art\\" + char_dict[alias] + ".png")
+            elif '" "' not in line:                         # narrator
+                character.clear()
             else:
-                character_center.hide()
+                line = line[line.find('" "')+2:]
             dialog.set(line[line.find('"')+1:line.rfind('"')])
+            
             wait_input()
             save.position(src.tell())
 
@@ -49,48 +56,3 @@ with open("scenario.txt", "r", encoding="utf8") as src:
             scene.update()
 
         line = src.readline()
-
-'''
-music.set('music\\bgm.mp3')
-background.set("background\\background-2.jpg")
-effect_top.blink("effect\\speedlines.png")
-character_center.set("art\\Castle-3.png")
-name.set("CASTLE-3")
-dialog.set("Mission accomplished!")
-next(1)
-
-music.set('music\\7F.mp3')
-voice.set('voice\\voice.mp3')
-character_left.set("art\\Castle-3.png")
-character_left.listening()
-character_center.hide()
-character_right.set("art\\Lancet-2.png")
-character_right.speaking()
-name.set("LANCET-2")
-dialog.set("Be on your guard, we're not in the clear yet!")
-effect_top.stop()
-next(2)
-
-character_left.speaking()
-character_right.listening()
-name.set("CASTLE-3")
-dialog.set("Please! Nothing here can even put a scratch on my armor. It would take a real boss to get me sweating.")
-next(3)
-
-name.set("CASTLE-3")
-dialog.set("Well, something that plot-convenient would never happen, right?")
-next(4)
-
-music.set('music\\boss.mp3')
-background.set("background\\background-1.jpg")
-character_left.hide()
-character_center.set("art\\Navigator.png")
-character_right.hide()
-name.set("A real bosss")
-dialog.set("Famous last words, son.")
-effect_bottom.shake("effect\\menacing.png")
-next(5)
-
-music.stop()
-
-'''

@@ -27,6 +27,7 @@ effect_bottom = scene.background.effect
 character_center = scene.foreground.character_center
 character_left =  scene.foreground.character_left
 character_right =  scene.foreground.character_right
+character = scene.foreground
 effect_top =  scene.interface.effect
 dialog = scene.interface.dialog
 name = scene.interface.name
@@ -44,20 +45,4 @@ def wait_input():
             scene.update()
         voice.stop()
 
-bg_dict = {
-        "wreckage": "background-1.jpg",
-        "tank": "background-2.jpg"
-        }        # map background -> file
 char_dict = {}      # map user-defined alias -> character
-art_dict = {
-        "LANCET-2":  {
-                "" : "Lancet-2.png"
-                },
-        "CASTLE-3":  {
-                "" : "Castle-3.png"
-                },
-        "A real boss": {
-                "" : "Navigator.png",
-                "default" : "Navigator.png"
-                }
-        }       # map character -> emotion -> file

@@ -1,16 +1,16 @@
-character C "CASTLE-3"
-character L "LANCET-2"
-character B "A real boss"
+character C "Castle-3"
+character L "Lancet-2"
+character B "Covid-19"
 
 background tank
 music bgm
 effect top blink speedlines
-	C "Mission accomplished!"
+	C "We're out!"
 music 7F
 voice voice
 effect top stop
-	L "Be on your guard, we're not in the clear yet!"
-	C "Nothing here can even put a scratch on my armor. It would take a real boss to get me sweating."
+	L "Keep it down! We're not in the clear yet!"
+	C "Please! Nothing here can even put a scratch on my immune system. It would take a real boss to get me sweating."
 	C "Well, something that plot-convenient would never happen, right?"
 
 background wreckage
@@ -18,5 +18,13 @@ background wreckage
 music boss
 effect bottom shake menacing
 	B "A wild boss appeared!" --nameless
-	B "Famous last words, son."
+	"???" "Famous last words, son."
+effect bottom stop
+
+background wreckage
+	C "Dammit, Lancet! You jinxed me!"
+	L "I told you this was a bad idea! I told you We should have listened to the doctor and stayed home!"
+	"???" "Both of you trash cans...SHUT UP!"
+effect top shake speedlines
+	B "Covid-19 is the name. I'm here to harvest your robot sweats."
 exit
