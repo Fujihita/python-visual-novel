@@ -1,0 +1,43 @@
+character L "Inventor"
+character K "Katherine"
+
+background riverside
+audio sfx-river
+	"???" "Ugh? Where am I?"
+music silent_footsteps
+	L "Right...Fazegaid. I remember now..."
+	L "He recalled the earth-shattering roar of the mighty dragon named Fazegaid." --nameless
+background fazegaid
+	"The Eater of Realms."
+	"It descended upon his workshop. Each flap of its vast dark wings sent tremors across the land."
+audio sfx-thunderclap
+	"Its thunder breath melted even the ground."
+	"That is unthinkable. Lightning is not supposed to melt Earth."
+background riverside
+	L "That makes no sense!"
+background riverside
+	"???" "What makes no sense?"
+	K "A voice boomed behind the Inventor. It was Katherine, an elite red-helm knight tasked with protecting him from all harms." --nameless
+	K "Considering he was being attacked by a dragon, one could say she was working way, way above her paygrade." --nameless
+background riverside
+	L "Magic! Magic and dragons, neither of them makes any sense."
+	K "She shruged." --nameless
+	K "Can't help you there. I'm no witch."
+	K "Speaking of whom..."
+	K "Leonardo de Price! What in the name of Tenrid are you doing!?"
+	K "You hid the witch in your workshop. You almost got me killed!"
+	L "Technically, she did not attack you. The dragon did."
+	K "You know full well Fazegaid is out for her blood."
+	K "Having her around is like coating yourself in honey and wearing a bullseye on your back at the same time!"
+	L "Look, I have no choice but to cooperate with her, okay?"
+	K "So she did threaten you!"
+	L "No. She did not. I need her expertises in researching the cure."
+	L "I'm only the herbalist in name. She is the real herbalist!"
+	K "The knight let out an audible gasp" --nameless
+	K "Are you tellng me all your master titles are fake?"
+	L "I'm telling you, one of them is and that's it. Just that one."
+	K "Why, Leo? Why?"
+background lab
+audio sfx-bubbling
+	"Inventor" "Because she needs tools and ingredients to further her research. The Silverflow Academy just happens to have everything she needs."
+exit

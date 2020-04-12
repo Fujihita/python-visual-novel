@@ -15,7 +15,7 @@ class Save:
     def music(self, line):
         self._state[1] = line
     
-    def voice(self, line):
+    def audio(self, line):
         self._state[2] = line
             
     def effect(self, line):

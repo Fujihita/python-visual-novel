@@ -7,7 +7,7 @@ music bgm
 effect top blink speedlines
 	C "We're out!"
 music 7F
-voice voice
+audio voice
 effect top stop
 	L "Keep it down! We're not in the clear yet!"
 	C "Please! Nothing here can even put a scratch on my immune system. It would take a real boss to get me sweating."
@@ -20,11 +20,11 @@ effect bottom shake menacing
 	B "A wild boss appeared!" --nameless
 	"???" "Famous last words, son."
 effect bottom stop
-
-background wreckage
+hide all
 	C "Dammit, Lancet! You jinxed me!"
 	L "I told you this was a bad idea! I told you We should have listened to the doctor and stayed home!"
-	"???" "Both of you trash cans...SHUT UP!"
+hide all
+	B "Both of you trash cans...SHUT UP!" --nographic
 effect top shake speedlines
 	B "Covid-19 is the name. I'm here to harvest your robot sweats."
 exit

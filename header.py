@@ -21,7 +21,7 @@ root.update()
 scene = Scene(canvas)
 
 music = Audio(mode="loop")
-voice = Audio()
+audio = Audio()
 background = scene.background.wallpaper
 effect_bottom = scene.background.effect
 character_center = scene.foreground.character_center
@@ -31,6 +31,13 @@ character = scene.foreground
 effect_top =  scene.interface.effect
 dialog = scene.interface.dialog
 name = scene.interface.name
+
+def on_closing():
+    music.stop()
+    audio.stop()
+    root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 
 def wait_input():
     global position
@@ -43,6 +50,6 @@ def wait_input():
         wait_flag = True
         while wait_flag:
             scene.update()
-        voice.stop()
+    audio.stop()
 
 char_dict = {}      # map user-defined alias -> character

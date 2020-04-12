@@ -8,6 +8,9 @@ with open("scenario.txt", "r", encoding="utf8") as src:
             char_dict[line[10:line.find('"')-1]] = line[line.find('"')+1:-2]
             save.alias(line)
 
+        elif line[:-1] == "hide all":
+            character.clear()
+
         elif line[:10] == 'background':                     # set background
             character.clear()
             background.set("background\\" + line[11:-1] + ".jpg")
@@ -17,9 +20,9 @@ with open("scenario.txt", "r", encoding="utf8") as src:
             music.set("music\\" + line[6:-1] + ".mp3")
             save.music(line)
 
-        elif line[:5] == 'voice':                           # set voice
-            voice.set("voice\\" + line[6:-1] + ".mp3")
-            save.voice(line)
+        elif line[:5] == 'audio':                           # set voice
+            audio.set("audio\\" + line[6:-1] + ".mp3")
+            save.audio(line)
 
         elif line[:6] == 'effect':                          # set effect
             save.effect("effect")
@@ -46,6 +49,10 @@ with open("scenario.txt", "r", encoding="utf8") as src:
                 character.clear()
             else:
                 line = line[line.find('" "')+2:]
+            
+            if "--nographic" in line:
+                character.hide("art\\" + char_dict[alias] + ".png")
+
             dialog.set(line[line.find('"')+1:line.rfind('"')])
             
             wait_input()
