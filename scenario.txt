@@ -1,30 +1,68 @@
-character C "Castle-3"
-character L "Lancet-2"
-character B "Covid-19"
+character L "Inventor"
+character K "Katherine"
 
-background tank
-music bgm
-effect top blink speedlines
-	C "We're out!"
-music 7F
-audio voice
-effect top stop
-	L "Keep it down! We're not in the clear yet!"
-	C "Please! Nothing here can even put a scratch on my immune system. It would take a real boss to get me sweating."
-	C "Well, something that plot-convenient would never happen, right?"
-
-background wreckage
-	"Suddenly, there was a devilish laughter nearby."
-music boss
-effect bottom shake menacing
-	B "A wild boss appeared!" --nameless
-	"???" "Famous last words, son."
-effect bottom stop
+background riverside
+audio sfx-river
+	"???" "Ugh? Where am I?"
+music silent_footsteps
+	L "Right! Fazegaid. I remember now..."
+	L "He recalls the earth-shattering roar of the mighty dragon named Fazegaid." --nameless
+background fazegaid
+	"The Eater of Realms."
+	"It descended upon his workshop. Each flap of its vast dark wings sent tremors across the land."
+audio sfx-thunderclap
+	"Its thunder breath melted even the ground."
+	"The last time he checked, lightning is not supposed to melt earth."
+	"That's the basic law; literally the first chapter in a book aptly titled "Introduction to elemental magic"."
+background riverside
+	L "This makes no sense!"
 hide all
-	C "Dammit, Lancet! You jinxed me!"
-	L "I told you this was a bad idea! I told you We should have listened to the doctor and stayed home!"
+	"???" "What makes no sense?"
+	K "A voice boomed behind the Inventor. It was Katherine, an elite red-helm knight tasked with protecting him from all harms." --nameless
+	K "Considering he was being attacked by a dragon, one could say she was working way, way above her paygrade." --nameless
 hide all
-	B "Both of you trash cans...SHUT UP!" --nographic
-effect top shake speedlines
-	B "Covid-19 is the name. I'm here to harvest your robot sweats."
+	L "Magic! Magic and dragons, neither of them makes any sense!"
+hide all
+	K "She shruged." --nameless
+	K "Can't help you there. I'm no witch."
+	K "Speaking of whom..."
+	K "Leonardo de Price! What in the name of Tenrid are you doing!?"
+	K "You hid the witch in your workshop. You almost got me killed!"
+hide all
+	L "Technically, she did not attack you. The dragon did."
+hide all
+	K "You know full well Fazegaid was out for her blood."
+	K "Having her around is like coating yourself in honey and wearing a bullseye on your back at the same time!"
+hide all
+	L "Look, I have no choice but to cooperate, okay?"
+hide all
+	K "So she did threaten you!"
+hide all
+	L "No. She did not. I need her expertises in researching the cure."
+	L "I'm only the herbalist in name. She is the real herbalist!"
+hide all
+audio sfx-gasp
+	K "The knight let out an audible gasp" --nameless
+	K "Are you tellng me all your master titles are fake?!"
+hide all
+	L "I'm telling you, one of them is and that's it. Just that one."
+hide all
+	K "Why, Leo? Why?"
+background lab
+	L "Because she needed tools and ingredients to further her research." --nographic
+audio sfx-bubbling
+	L "The Silverflow Academy just happens to have everything she needed." --nographic
+	L "I was merely doing what I could to assist. It's for the good of Ironheart after all." --nographic
+background dark-sorceress
+	K "That's bull and you know it!" --nographic
+audio sfx-bones
+	K "She's responsible for the plague in the first place." --nographic
+	L "You can't prove that!" --nographic
+	K "You can't disprove that either!" --nographic
+background riverside
+	L "I can prove, at least, that she did save our lives."
+hide all
+	K "Ya sure. After she put our lives in peril."
+	K "You expect me to thank her for throwing me a rope after she kicked me over board?"
+	K "That's some D'Amore level of twisted logic. And trust me, I know a thing or two about twisted logic."
 exit
